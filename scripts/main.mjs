@@ -1,13 +1,9 @@
-console.log('[Tiny6dBar] main.mjs loaded, importing modules...');
-
 import { initTokenBars } from './canvas/TokenWounds.mjs';
 import { HeroSheet } from './sheets/HeroSheet.mjs';
 import { NpcSheet } from './sheets/NpcSheet.mjs';
 
-console.log('[Tiny6dBar] imports OK, registering hooks...');
-
 Hooks.once('init', () => {
-  console.log('[Tiny6dBar] init hook fired');
+  console.log('[Tiny6dBar] init');
   registerHelpers();
 
   ActorSheet.registerSheet('tinyd6', HeroSheet, {
@@ -25,7 +21,7 @@ Hooks.once('init', () => {
 });
 
 Hooks.once('ready', () => {
-  console.log('[Tiny6dBar] ready hook fired, calling initTokenBars');
+  console.log('[Tiny6dBar] ready');
   initTokenBars();
 });
 
