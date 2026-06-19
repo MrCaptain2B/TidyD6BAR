@@ -37,7 +37,7 @@
       "path": "lang/en.json"
     }
   ],
-  "url": "https://github.com/MrCaptain2B/TinyD6BAR",
-  "manifest": "https://raw.githubusercontent.com/MrCaptain2B/TinyD6BAR/main/module.json",
-  "download": "https://codeload.github.com/MrCaptain2B/TinyD6BAR/zip/main"
+  "url": "https://github.com/MrCaptain2B/TidyD6BAR",
+  "manifest": "https://raw.githubusercontent.com/MrCaptain2B/TidyD6BAR/main/module.json",
+  "download": "https://github.com/MrCaptain2B/TidyD6BAR/archive/refs/heads/main.zip"
 }
