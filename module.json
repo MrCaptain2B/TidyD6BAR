@@ -2,7 +2,7 @@
   "id": "tiny6dbar",
   "title": "Tiny6dBar",
   "description": "Wound boxes and armor display for Tiny d6 tokens on Foundry VTT",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "authors": [],
   "compatibility": {
     "minimum": "13",
