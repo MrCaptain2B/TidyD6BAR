@@ -1,8 +1,9 @@
 {
   "id": "tiny6dbar",
+  "name": "Tiny6dBar",
   "title": "Tiny6dBar",
-  "description": "Wound boxes and armor display for Tiny d6 tokens on Foundry VTT",
-  "version": "1.0.1",
+  "description": "HP stepper and armor display for Tiny d6 tokens on Foundry VTT",
+  "version": "1.0.2",
   "authors": [],
   "compatibility": {
     "minimum": "13",
@@ -39,5 +40,5 @@
   ],
   "url": "https://github.com/MrCaptain2B/TidyD6BAR",
   "manifest": "https://raw.githubusercontent.com/MrCaptain2B/TidyD6BAR/main/module.json",
-  "download": "https://github.com/MrCaptain2B/TidyD6BAR/archive/refs/heads/main.zip"
+  "download": "https://github.com/MrCaptain2B/TidyD6BAR/archive/main.zip"
 }
