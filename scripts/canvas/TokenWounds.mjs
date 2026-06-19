@@ -16,15 +16,15 @@ function _seedTokenHp(token) {
     _warn('_seedTokenHp: no wounds on actor');
     return null;
   }
-  const remaining = (w.max ?? 0) - (w.value ?? 0);
+  const remaining = (Number(w.max) || 0) - (Number(w.value) || 0);
   _log('_seedTokenHp: remaining=', remaining, 'from wounds max=', w.max, 'value=', w.value);
   token.document.setFlag('tiny6dbar', 'hp', remaining).catch(() => {});
   return remaining;
 }
 
-function _readHp(token) {
+function _readHp(token, maxOverride) {
   const w = token.actor?.system?.wounds;
-  const max = w?.max ?? 0;
+  const max = maxOverride ?? Number(w?.max) || 0;
   let hp = _getTokenHp(token);
   if (hp === null) {
     _log('_readHp: no flag, seeding');
@@ -38,7 +38,7 @@ function _readHp(token) {
 
 function _setTokenHp(token, val) {
   const w = token.actor?.system?.wounds;
-  const max = w?.max ?? 0;
+  const max = Number(w?.max) || 0;
   const clamped = Math.max(0, Math.min(max, val));
   _log('_setTokenHp: val=', val, 'clamped=', clamped, 'max=', max);
   token.document.setFlag('tiny6dbar', 'hp', clamped);
@@ -74,16 +74,27 @@ export function initTokenBars() {
 
     _log('wounds data:', JSON.stringify(actor.system.wounds));
 
-    const hp = _readHp(token);
+    const max = Number(actor.system.wounds.max) || 0;
+    _log('max (parsed):', max);
+
+    const hp = _readHp(token, max);
     _log('hp read result:', hp);
     if (hp === null) {
       _err('hp is null after read/seed, skipping');
       return;
     }
 
-    const max = actor.system.wounds.max ?? 0;
     const armorTotal = _getArmorTotal(actor);
-    _log('max:', max, 'armorTotal:', armorTotal);
+    _log('armorTotal:', armorTotal);
+
+    /* ── Dump HUD DOM structure for debugging ── */
+    const root = html[0];
+    _log('root tag:', root?.tagName, 'id:', root?.id, 'class:', root?.className);
+    _log('root children count:', root?.children?.length);
+    for (let i = 0; i < Math.min(root?.children?.length ?? 0, 10); i++) {
+      const c = root.children[i];
+      _log('  child[' + i + ']:', c.tagName, 'id:', c.id, 'class:', c.className, 'visible:', c.offsetHeight > 0);
+    }
 
     const section = document.createElement('div');
     section.className = 'tiny6dbar-hud';
@@ -96,15 +107,25 @@ export function initTokenBars() {
       ${armorTotal > 0 ? `<div class="tiny6dbar-armor">\u{1F6E1} ${armorTotal}</div>` : ''}
     `;
 
-    const leftCol = html[0].querySelector('.col.left');
-    _log('leftCol element found:', !!leftCol);
-    if (leftCol) {
-      leftCol.appendChild(section);
-      _log('section appended to .col.left');
+    /* Try common HUD container selectors */
+    const containers = [
+      '.col.left', '.col-right', '.hud-body', '.token-hud-body',
+      '.hud-content', '#token-hud .col', '.status-effects',
+      '.control-icons', '[class*="col"]'
+    ];
+    let target = null;
+    for (const sel of containers) {
+      target = root.querySelector(sel);
+      if (target) { _log('found container:', sel); break; }
+    }
+
+    if (target) {
+      target.appendChild(section);
+      _log('section appended to', target.className);
     } else {
-      _warn('no .col.left found, HUD html structure:', html[0].innerHTML.slice(0, 500));
-      html[0].appendChild(section);
-      _log('section appended to HUD root');
+      _warn('no known container found, appending to root');
+      root.appendChild(section);
+      _log('section appended to root');
     }
 
     section.querySelector('[data-action="hp-damage"]').addEventListener('click', (e) => {
