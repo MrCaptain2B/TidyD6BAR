@@ -1,0 +1,45 @@
+<form class="{{cssClass}}" autocomplete="off">
+  <header class="sheet-header">
+    <img src="{{actor.img}}" data-edit="img" title="{{actor.name}}">
+    <div class="header-fields">
+      <h1><input name="name" type="text" value="{{actor.name}}" placeholder="Name"></h1>
+    </div>
+  </header>
+
+  <section class="sheet-body">
+    <div class="section wounds-section">
+      <h3>{{localize 'TINY6DBAR.Wounds'}}</h3>
+      <div class="wounds-grid">
+        {{#each system.woundBoxes as |box|}}
+        <div class="wound-box {{#if box.checked}}checked{{/if}}" data-index="{{box.index}}">
+          {{#if box.checked}}✕{{/if}}
+        </div>
+        {{/each}}
+      </div>
+      <div class="wounds-label">{{system.wounds.value}} / {{system.wounds.max}}</div>
+    </div>
+
+    {{#if system.armorTotal}}
+    <div class="section armor-section">
+      <h3>{{localize 'TINY6DBAR.Armor'}}: {{system.armorTotal}}</h3>
+    </div>
+    {{/if}}
+
+    <div class="section description-section">
+      <h3>{{localize 'TINY6DBAR.Description'}}</h3>
+      <div class="description-editor">
+        {{editor system.description target='system.description' button=true editable=editable}}
+      </div>
+    </div>
+
+    <div class="section traits-section">
+      <h3>{{localize 'TINY6DBAR.Traits'}}</h3>
+      {{#each system.traitItems as |item|}}
+      <div class="trait-card">
+        <h4 class="item-open" data-item-id="{{item._id}}">{{item.name}}</h4>
+        <p>{{item.system.description}}</p>
+      </div>
+      {{/each}}
+    </div>
+  </section>
+</form>

@@ -1,0 +1,206 @@
+.tinyd6.sheet.actor {
+  --wound-size: 22px;
+  --wound-gap: 4px;
+  color: #ddd;
+}
+
+.tinyd6.sheet.actor .sheet-header {
+  display: flex;
+  gap: 12px;
+  padding: 8px;
+  border-bottom: 2px solid #333;
+  background: rgba(0,0,0,0.15);
+}
+
+.tinyd6.sheet.actor .sheet-header img {
+  width: 64px;
+  height: 64px;
+  border-radius: 4px;
+  border: 1px solid #555;
+}
+
+.tinyd6.sheet.actor .sheet-header .header-fields {
+  flex: 1;
+}
+
+.tinyd6.sheet.actor .sheet-header h1 input {
+  font-size: 1.5em;
+  border: none;
+  background: transparent;
+  color: #eee;
+  width: 100%;
+}
+
+.tinyd6.sheet.actor .heritage {
+  font-style: italic;
+  color: #999;
+  font-size: 0.9em;
+}
+
+.tinyd6.sheet.actor .section {
+  padding: 10px 8px;
+  margin: 4px 0;
+}
+
+.tinyd6.sheet.actor .section h3 {
+  border-bottom: 1px solid #555;
+  margin: 0 0 8px;
+  padding-bottom: 4px;
+  font-size: 1.05em;
+  color: #ccc;
+}
+
+.wounds-grid {
+  display: flex;
+  gap: var(--wound-gap);
+  flex-wrap: wrap;
+}
+
+.wound-box {
+  width: var(--wound-size);
+  height: var(--wound-size);
+  border: 2px solid #666;
+  border-radius: 3px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  font-size: 14px;
+  font-weight: bold;
+  user-select: none;
+  transition: background 0.15s;
+}
+
+.wound-box.checked {
+  background: #993333;
+  border-color: #661111;
+  color: #fff;
+}
+
+.wound-box:not(.checked) {
+  background: #2a4a2a;
+  border-color: #44aa44;
+}
+
+.wound-box:hover {
+  opacity: 0.75;
+  filter: brightness(1.2);
+}
+
+.wounds-label {
+  margin-top: 6px;
+  font-size: 0.85em;
+  color: #888;
+}
+
+.item-row {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 4px 0;
+  border-bottom: 1px solid #444;
+}
+
+.item-row .item-name {
+  flex: 1;
+}
+
+.item-open {
+  cursor: pointer;
+}
+
+.item-open:hover {
+  color: #fff;
+  text-decoration: underline;
+}
+
+.item-dr {
+  color: #8888cc;
+  font-weight: bold;
+}
+
+.item-equip {
+  padding: 2px 10px;
+  font-size: 0.82em;
+  cursor: pointer;
+  border: 1px solid #666;
+  border-radius: 3px;
+  background: #333;
+  color: #ccc;
+}
+
+.item-equip:hover {
+  background: #444;
+}
+
+.proficiency-grid {
+  display: flex;
+  gap: 4px;
+  flex-wrap: wrap;
+}
+
+.proficiency-tag {
+  background: #334;
+  padding: 2px 8px;
+  border-radius: 3px;
+  font-size: 0.85em;
+  color: #aac;
+}
+
+.trait-card {
+  padding: 6px 8px;
+  margin: 4px 0;
+  border: 1px solid #555;
+  border-radius: 4px;
+  background: rgba(255,255,255,0.03);
+}
+
+.trait-card h4 {
+  margin: 0 0 4px;
+  color: #dda;
+}
+
+.trait-card p {
+  margin: 0;
+  font-size: 0.9em;
+  color: #aaa;
+}
+
+.tabs {
+  display: flex;
+  gap: 2px;
+  padding: 6px 8px;
+  border-bottom: 1px solid #444;
+  background: rgba(0,0,0,0.1);
+}
+
+.tabs a {
+  padding: 4px 14px;
+  border: 1px solid transparent;
+  border-radius: 3px;
+  cursor: pointer;
+  color: #888;
+  font-size: 0.9em;
+}
+
+.tabs a.active {
+  border-color: #777;
+  background: rgba(255,255,255,0.08);
+  color: #eee;
+}
+
+.tabs a:hover {
+  color: #fff;
+}
+
+.sheet-body {
+  padding: 4px;
+}
+
+.description-editor .editor {
+  min-height: 100px;
+  border: 1px solid #444;
+  border-radius: 3px;
+  padding: 4px;
+  background: rgba(0,0,0,0.1);
+}

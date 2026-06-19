@@ -1,0 +1,93 @@
+<form class="{{cssClass}}" autocomplete="off">
+  <header class="sheet-header">
+    <img src="{{actor.img}}" data-edit="img" title="{{actor.name}}">
+    <div class="header-fields">
+      <h1><input name="name" type="text" value="{{actor.name}}" placeholder="Name"></h1>
+      {{#if system.heritage}}
+      <span class="heritage">{{system.heritage.name}}</span>
+      {{/if}}
+    </div>
+  </header>
+
+  <nav class="tabs">
+    <a class="active" data-tab="main">{{localize 'TINY6DBAR.TabMain'}}</a>
+    <a data-tab="inventory">{{localize 'TINY6DBAR.TabInventory'}}</a>
+    <a data-tab="traits">{{localize 'TINY6DBAR.TabTraits'}}</a>
+  </nav>
+
+  <section class="sheet-body">
+    <div class="tab active" data-tab="main">
+      <div class="section wounds-section">
+        <h3>{{localize 'TINY6DBAR.Wounds'}}</h3>
+        <div class="wounds-grid">
+          {{#each system.woundBoxes as |box|}}
+          <div class="wound-box {{#if box.checked}}checked{{/if}}" data-index="{{box.index}}">
+            {{#if box.checked}}✕{{/if}}
+          </div>
+          {{/each}}
+        </div>
+        <div class="wounds-label">{{system.wounds.value}} / {{system.wounds.max}}</div>
+      </div>
+
+      <div class="section armor-section">
+        <h3>{{localize 'TINY6DBAR.Armor'}} (DR: {{system.armorTotal}})</h3>
+        {{#each system.armorItems as |item|}}
+        <div class="item-row">
+          <span class="item-name item-open" data-item-id="{{item._id}}">{{item.name}}</span>
+          <span class="item-dr">DR {{item.system.damageReduction}}</span>
+          <button class="item-equip" data-item-id="{{item._id}}">
+            {{#if item.system.equipped}}✓ {{localize 'TINY6DBAR.Equipped'}}{{else}}{{localize 'TINY6DBAR.Unequipped'}}{{/if}}
+          </button>
+        </div>
+        {{/each}}
+      </div>
+
+      {{#if system.proficiencies}}
+      <div class="section proficiencies-section">
+        <h3>{{localize 'TINY6DBAR.Proficiencies'}}</h3>
+        <div class="proficiency-grid">
+          {{#each system.proficiencies as |prof key|}}
+          {{#if prof}}
+          <span class="proficiency-tag">{{key}}</span>
+          {{/if}}
+          {{/each}}
+        </div>
+      </div>
+      {{/if}}
+    </div>
+
+    <div class="tab" data-tab="inventory">
+      <div class="section">
+        <h3>{{localize 'TINY6DBAR.Weapons'}}</h3>
+        {{#each system.weaponItems as |item|}}
+        <div class="item-row">
+          <span class="item-name item-open" data-item-id="{{item._id}}">{{item.name}}</span>
+          <span>{{item.system.damageType}} / {{item.system.group}}</span>
+        </div>
+        {{/each}}
+      </div>
+
+      <div class="section">
+        <h3>{{localize 'TINY6DBAR.Gear'}}</h3>
+        {{#each system.gearItems as |item|}}
+        <div class="item-row">
+          <span class="item-name item-open" data-item-id="{{item._id}}">{{item.name}}</span>
+          {{#if item.system.quantity}}<span>x{{item.system.quantity.value}}</span>{{/if}}
+        </div>
+        {{/each}}
+      </div>
+    </div>
+
+    <div class="tab" data-tab="traits">
+      <div class="section">
+        <h3>{{localize 'TINY6DBAR.Traits'}}</h3>
+        {{#each system.traitItems as |item|}}
+        <div class="trait-card">
+          <h4 class="item-open" data-item-id="{{item._id}}">{{item.name}}</h4>
+          <p>{{item.system.description}}</p>
+        </div>
+        {{/each}}
+      </div>
+    </div>
+  </section>
+</form>

@@ -1,0 +1,21 @@
+{
+  "TINY6DBAR": {
+    "SheetHero": "Герой (Tiny6dBar)",
+    "SheetNpc": "NPC (Tiny6dBar)",
+    "Wounds": "Раны",
+    "Armor": "Броня",
+    "DR": "Поглощение",
+    "Equipped": "Надето",
+    "Unequipped": "Не надето",
+    "Proficiencies": "Владение",
+    "Weapons": "Оружие",
+    "Gear": "Снаряжение",
+    "Traits": "Черты",
+    "Description": "Описание",
+    "TabMain": "Основное",
+    "TabInventory": "Инвентарь",
+    "TabTraits": "Черты",
+    "SettingShowArmor": "Показывать броню на токенах",
+    "SettingShowArmorHint": "Отображать показатель брони (DR) на боевых токенах"
+  }
+}

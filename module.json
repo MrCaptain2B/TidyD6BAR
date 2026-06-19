@@ -1,0 +1,43 @@
+{
+  "id": "tiny6dbar",
+  "title": "Tiny6dBar",
+  "description": "Wound boxes and armor display for Tiny d6 tokens on Foundry VTT",
+  "version": "1.0.0",
+  "authors": [],
+  "compatibility": {
+    "minimum": "13",
+    "verified": "13"
+  },
+  "relationships": {
+    "systems": [{
+      "id": "tinyd6",
+      "type": "system",
+      "compatibility": {
+        "minimum": "0.6.1",
+        "verified": "0.6.1"
+      }
+    }]
+  },
+  "esmodules": [
+    "scripts/main.mjs"
+  ],
+  "styles": [
+    "styles/sheets.css",
+    "styles/token.css"
+  ],
+  "languages": [
+    {
+      "lang": "ru",
+      "name": "Русский",
+      "path": "lang/ru.json"
+    },
+    {
+      "lang": "en",
+      "name": "English",
+      "path": "lang/en.json"
+    }
+  ],
+  "url": "",
+  "manifest": "",
+  "download": ""
+}

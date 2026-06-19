@@ -1,0 +1,21 @@
+{
+  "TINY6DBAR": {
+    "SheetHero": "Hero (Tiny6dBar)",
+    "SheetNpc": "NPC (Tiny6dBar)",
+    "Wounds": "Wounds",
+    "Armor": "Armor",
+    "DR": "DR",
+    "Equipped": "Equipped",
+    "Unequipped": "Unequipped",
+    "Proficiencies": "Proficiencies",
+    "Weapons": "Weapons",
+    "Gear": "Gear",
+    "Traits": "Traits",
+    "Description": "Description",
+    "TabMain": "Main",
+    "TabInventory": "Inventory",
+    "TabTraits": "Traits",
+    "SettingShowArmor": "Show armor on tokens",
+    "SettingShowArmorHint": "Display armor rating (DR) on combat tokens"
+  }
+}
