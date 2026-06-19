@@ -17,14 +17,6 @@ Hooks.once('init', () => {
     label: 'TINY6DBAR.SheetNpc'
   });
 
-  game.settings.register('tiny6dbar', 'showTokenArmor', {
-    name: 'TINY6DBAR.SettingShowArmor',
-    hint: 'TINY6DBAR.SettingShowArmorHint',
-    scope: 'world',
-    config: true,
-    type: Boolean,
-    default: true
-  });
 });
 
 Hooks.once('ready', () => {

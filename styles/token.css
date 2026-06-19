@@ -1,2 +1,52 @@
-/* Token wound boxes and armor are rendered via PIXI in TokenWounds.mjs.
-   This file is reserved for any future HTML-based token overlays. */
+.tiny6dbar-hud {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  padding: 4px 6px;
+  margin-top: 4px;
+  background: rgba(0,0,0,0.6);
+  border: 1px solid #555;
+  border-radius: 4px;
+}
+
+.tiny6dbar-hp {
+  display: flex;
+  align-items: center;
+  gap: 2px;
+}
+
+.tiny6dbar-btn {
+  width: 20px;
+  height: 20px;
+  padding: 0;
+  border: 1px solid #777;
+  border-radius: 3px;
+  background: #333;
+  color: #ddd;
+  font-size: 14px;
+  font-weight: bold;
+  line-height: 1;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.tiny6dbar-btn:hover {
+  background: #555;
+  color: #fff;
+}
+
+.tiny6dbar-hp-value {
+  min-width: 24px;
+  text-align: center;
+  font-size: 14px;
+  font-weight: bold;
+  font-family: 'Arial', sans-serif;
+}
+
+.tiny6dbar-armor {
+  font-size: 12px;
+  color: #88f;
+  white-space: nowrap;
+}
